@@ -11,6 +11,8 @@ async function Meals() {
 }
 
 export default function MealsPage() {
+  const fallback = <p className={styles.loading}>Fetching meals...</p>;
+
   return (
     <>
       <header className={styles.header}>
@@ -27,9 +29,7 @@ export default function MealsPage() {
         </p>
       </header>
       <main className={styles.main}>
-        <Suspense
-          fallback={<p className={styles.loading}>Fetching meals...</p>}
-        >
+        <Suspense fallback={fallback}>
           <Meals />
         </Suspense>
       </main>
